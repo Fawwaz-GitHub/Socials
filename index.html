@@ -40,6 +40,7 @@ nav a.on{color:#fff;background:rgba(255,255,255,.1)}
 /* list */
 .list{margin-top:40px;border-top:1px solid var(--line)}
 .row{display:flex;align-items:center;gap:16px;padding:20px 2px;border-bottom:1px solid var(--line);transition:.35s}
+.row{color:inherit;text-decoration:none}
 .row h3{font-weight:400;font-size:1.25rem;flex:1}
 .row span{display:none;color:var(--mute);font-size:.88rem;text-align:right}
 
@@ -48,7 +49,7 @@ nav a.on{color:#fff;background:rgba(255,255,255,.1)}
 #sports .head{padding:0 var(--pad)}
 .rail{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;margin-top:36px;-webkit-overflow-scrolling:touch}
 .rail::-webkit-scrollbar{display:none}
-.panel{flex:0 0 100%;width:100%;scroll-snap-align:start;scroll-snap-stop:always;min-height:560px;min-height:min(74svh,620px);padding:70px var(--pad) 36px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;border-top:1px solid var(--line);background:radial-gradient(90% 60% at 85% 0,color-mix(in srgb,var(--c) 20%,transparent),transparent 70%)}
+.panel{flex:0 0 100%;width:100%;scroll-snap-align:start;scroll-snap-stop:always;min-height:560px;min-height:min(74svh,620px);padding:70px var(--pad) 36px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;border-top:1px solid var(--line);background:radial-gradient(90% 60% at 85% 0,color-mix(in srgb,var(--c) 24%,transparent),transparent 70%),radial-gradient(70% 50% at 0 100%,color-mix(in srgb,var(--c2,var(--c)) 16%,transparent),transparent 70%)}
 .panel>*{position:relative}
 .panel .sp{display:flex;align-items:center;gap:10px;color:var(--c);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase}
 .panel h3{font-weight:300;font-size:clamp(2.5rem,12.5vw,8rem);letter-spacing:-.04em;line-height:1;margin:12px 0}
@@ -67,7 +68,7 @@ nav a.on{color:#fff;background:rgba(255,255,255,.1)}
 .ctl button:active{background:#fff;color:#000}
 .dots{display:flex;gap:6px;margin-left:auto}
 .dots i{width:7px;height:7px;border-radius:7px;background:rgba(255,255,255,.22);transition:.3s;cursor:pointer}
-.dots i.on{width:24px;background:#fff}
+.dots i.on{width:24px;background:var(--cc,#fff)}
 
 /* tiles */
 .grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:36px}
@@ -76,13 +77,25 @@ nav a.on{color:#fff;background:rgba(255,255,255,.1)}
 .tile>*{position:relative}
 .tile .ic{width:30px;height:30px;color:var(--c);margin-bottom:auto;transition:transform .5s}
 .tile h3{font-weight:400;font-size:1.6rem;letter-spacing:-.02em;margin-top:32px;line-height:1.15}
-.tile .by{color:var(--c);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;margin-top:4px}
+.tile .by{color:var(--c);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;margin-top:32px}
+.tile .by+h3{margin-top:6px}
 .tile p{color:var(--mute);margin-top:10px;max-width:46ch;font-size:.97rem}
 .eq{position:absolute!important;top:30px;right:24px;display:flex;gap:3px;align-items:flex-end;height:22px}
 .eq i{width:3px;height:6px;background:var(--c);animation:eq 1.2s infinite ease-in-out}
 .eq i:nth-child(2){animation-delay:.2s}.eq i:nth-child(3){animation-delay:.4s}.eq i:nth-child(4){animation-delay:.1s}
 @keyframes eq{50%{height:22px}}
 
+
+.chips{display:flex;flex-wrap:wrap;align-items:center;gap:8px 0}
+.chip{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:#d4d4d8;white-space:nowrap}
+.chip+.chip:before{content:"";display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--ac);margin:0 12px;vertical-align:middle}
+/* films */
+.film{min-height:380px}
+.film p{max-width:48ch}
+.fav{align-self:flex-start;margin-top:16px;padding:8px 14px;border:1px solid var(--c);border-radius:99px;color:var(--c);font-size:.8rem;line-height:1.35}
+.wiz .star{position:absolute;width:3px;height:3px;border-radius:50%;background:#ffe9a8;box-shadow:0 0 8px 2px rgba(255,220,130,.7);animation:tw 3.5s infinite ease-in-out}
+@keyframes tw{0%,100%{opacity:.1;transform:translateY(0)}50%{opacity:1;transform:translateY(-14px)}}
+.web{position:absolute!important;width:260px;height:260px;right:-60px;top:-60px;color:var(--c);opacity:.28}
 /* end */
 #end{text-align:center;padding-bottom:150px;border-top:1px solid var(--line)}
 #end h2{font-size:clamp(2.1rem,9vw,5rem)}
@@ -113,6 +126,8 @@ nav a.on{color:#fff;background:rgba(255,255,255,.1)}
   .grid{grid-template-columns:repeat(2,1fr);margin-top:50px}
   .tile{padding:36px 34px 40px;min-height:300px}
   .tile h3{font-size:1.8rem;margin-top:40px}
+  .tile .by{margin-top:40px}
+  .tile .by+h3{margin-top:6px}
   .eq{top:38px;right:34px}
 }
 /* hover only where it exists */
@@ -156,42 +171,40 @@ nav a.on{color:#fff;background:rgba(255,255,255,.1)}
   <h2 class="rv">Beyond the code.</h2>
   <p class="sub rv">Days spent solving problems in an editor. Everything else is a different kind of obsession.</p>
   <div class="list">
-    <div class="row rv"><svg class="ic"><use href="#i-trophy"/></svg><h3>Sports</h3><span>Cricket, football, F1</span></div>
-    <div class="row rv"><svg class="ic"><use href="#i-bolt"/></svg><h3>Superheroes</h3><span>Suits, capes and chaos</span></div>
-    <div class="row rv"><svg class="ic"><use href="#i-search"/></svg><h3>Crime thrillers</h3><span>Who did it, and why</span></div>
-    <div class="row rv"><svg class="ic"><use href="#i-orbit"/></svg><h3>Sci-fi</h3><span>Other worlds, bigger questions</span></div>
-    <div class="row rv"><svg class="ic"><use href="#i-music"/></svg><h3>Music</h3><span>Always on, words with weight</span></div>
+    <a class="row rv" href="#sports"><svg class="ic"><use href="#i-trophy"/></svg><h3>Sports</h3><span>Cricket, football, F1</span></a>
+    <a class="row rv" href="#movies"><svg class="ic"><use href="#i-wand"/></svg><h3>Movies</h3><span>Superhero, fantasy, crime, sci-fi</span></a>
+    <a class="row rv" href="#music"><svg class="ic"><use href="#i-music"/></svg><h3>Music</h3><span>Always on, words with weight</span></a>
   </div>
 </section>
 
 <section id="sports">
   <div class="head">
-    <div class="eyebrow rv">If I'm watching the game, I'm watching them</div>
-    <h2 class="rv">The Favorites.</h2>
-    <p class="sub rv">Different sports, different legends, same level of obsession. Swipe through.</p>
+    <div class="eyebrow rv">The players I look up to</div>
+    <h2 class="rv">The Inspirations.</h2>
+    <p class="sub rv">Different sports, different personalities, same level of obsession. Swipe through.</p>
   </div>
   <div class="rail" id="rail">
-    <article class="panel" style="--c:#60a5fa"><div class="ghost">10</div><div class="n">01 / 05</div>
+    <article class="panel" style="--c:#74acdf;--c2:#ffffff"><div class="ghost">10</div><div class="n">01 / 05</div>
       <div class="sp"><svg class="ic"><use href="#i-ball"/></svg>Football</div>
       <h3>Lionel Messi</h3>
       <p class="tagline serif">The GOAT.</p>
       <p class="why">The kind of genius that makes the impossible look effortless. Messi made football feel like art — and watching him play is a reminder that sometimes the greatest thing you can do is simply make magic look easy.</p></article>
-    <article class="panel" style="--c:#4ade80"><div class="ghost">45</div><div class="n">02 / 05</div>
+    <article class="panel" style="--c:#2f6bff;--c2:#e0b04a"><div class="ghost">45</div><div class="n">02 / 05</div>
       <div class="sp"><svg class="ic"><use href="#i-cricket"/></svg>Cricket</div>
       <h3>Rohit Sharma</h3>
       <p class="tagline serif">Aggression.</p>
       <p class="why">Pure intent, effortless aggression. That 264 wasn't just an innings — it was a statement of what happens when Rohit gets going. The way he turns timing into destruction and makes big scores look almost inevitable.</p></article>
-    <article class="panel" style="--c:#38bdf8"><div class="ghost">93</div><div class="n">03 / 05</div>
+    <article class="panel" style="--c:#1e90ff;--c2:#ff8a3d"><div class="ghost">93</div><div class="n">03 / 05</div>
       <div class="sp"><svg class="ic"><use href="#i-cricket"/></svg>Cricket</div>
       <h3>Jasprit Bumrah</h3>
       <p class="tagline serif">Calmness.</p>
       <p class="why">Ice-cold under pressure, relentlessly precise. A bowler who thrives when the stakes are highest, with yorkers that arrive almost out of nowhere and a calmness that makes chaos look routine.</p></article>
-    <article class="panel" style="--c:#f472b6"><div class="ghost">19</div><div class="n">04 / 05</div>
+    <article class="panel" style="--c:#ff2e63;--c2:#2f6fe0"><div class="ghost">19</div><div class="n">04 / 05</div>
       <div class="sp"><svg class="ic"><use href="#i-ball"/></svg>Football</div>
       <h3>Lamine Yamal</h3>
       <p class="tagline serif">Walk The Talk.</p>
       <p class="why">Fearless at an age when most are still finding their feet. Taking on defenders, creating chances and making the biggest stages feel like home. Watching him is a reminder that sometimes you don't wait for your moment; you create it.</p></article>
-    <article class="panel f1p" style="--c:#fbbf24"><div class="lines"></div><div class="n">05 / 05</div>
+    <article class="panel f1p" style="--c:#ff7a00;--c2:#1d4ed8"><div class="lines"></div><div class="n">05 / 05</div>
       <div class="sp"><svg class="ic"><use href="#i-gauge"/></svg>Formula 1</div>
       <h3>Max Verstappen</h3>
       <div class="shout"><b>TU</b> <b>TU</b> <b>TU</b> DU, MAX VERSTAPPEN</div>
@@ -212,9 +225,11 @@ nav a.on{color:#fff;background:rgba(255,255,255,.1)}
 <section id="movies">
   <div class="eyebrow rv">On screen</div>
   <h2 class="rv">Movies on repeat.</h2>
+  <div class="eyebrow rv" style="margin:22px 0 10px">Genres I live in</div>
+  <div class="chips rv"><span class="chip">Superhero</span><span class="chip">Crime thriller</span><span class="chip">Sci-fi</span></div>
   <div class="grid">
-    <div class="tile rv" style="--c:#fbbf24"><svg class="ic"><use href="#i-wand"/></svg><h3>Harry Potter</h3><p>Any film, any day, no questions asked.</p></div>
-    <div class="tile rv" style="--c:#f87171"><svg class="ic"><use href="#i-shield"/></svg><h3>MCU</h3><p>If it's out, I'm probably already watching.</p></div>
+    <div class="tile film wiz rv" style="--c:#fbbf24"><svg class="ic"><use href="#i-wand"/></svg><div class="by">Fantasy</div><h3>Harry Potter</h3><p>Any film, any day, no questions asked. Castles in the clouds, wands that choose their wizard, secret corridors and a world where magic hides in plain sight. The wizarding world never gets old.</p><div class="fav">Cosplayed as Harry as a kid &mdash; that's how it started</div></div>
+    <div class="tile film mcu rv" style="--c:#f87171"><svg class="web" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width=".6"><path d="M50 50L0 0M50 50L50 0M50 50L100 0M50 50L100 50M50 50L100 100M50 50L50 100M50 50L0 100M50 50L0 50"/><circle cx="50" cy="50" r="14"/><circle cx="50" cy="50" r="28"/><circle cx="50" cy="50" r="42"/></g></svg><svg class="ic"><use href="#i-shield"/></svg><div class="by">Superhero</div><h3>MCU</h3><p>If it's out, I'm probably already watching. Big team-ups, bigger stakes and a universe I never get tired of coming back to.</p><div class="fav">&#9733; Favourite: Spider-Man</div></div>
   </div>
 </section>
 
@@ -223,14 +238,14 @@ nav a.on{color:#fff;background:rgba(255,255,255,.1)}
   <h2 class="rv">Sound &amp; words.</h2>
   <div class="grid">
     <div class="tile rv" style="--c:#f472b6"><svg class="ic"><use href="#i-music"/></svg><span class="eq"><i></i><i></i><i></i><i></i></span><div class="by">Favourite song</div><h3 class="serif">Yeh Fitoor Mera</h3><p>a little obsessed, a little restless, and completely unapologetic about the things I love.</p></div>
-    <div class="tile rv" style="--c:#7df9ff"><svg class="ic"><use href="#i-pen"/></svg><span class="eq"><i></i><i></i><i></i><i></i></span><div class="by">Lyrics &amp; BGM</div><h3 class="serif">Anirudh × Heisenberg</h3><p>It's that perfect mix of energy, attitude and lyrics that stay in your head long after the movie ends.</p></div>
+    <div class="tile rv" style="--c:#7df9ff"><svg class="ic"><use href="#i-pen"/></svg><span class="eq"><i></i><i></i><i></i><i></i></span><div class="by">BGM &amp; Lyrics</div><h3 class="serif">Anirudh × Heisenberg</h3><p>It's that perfect mix of energy, attitude and lyrics that stay in your head long after the movie ends.</p></div>
   </div>
 </section>
 
 <section id="end">
-  <h2 class="rv">That's me, outside the code.</h2>
-  <p class="roles rv">Coder. Ambivert. Sports nerd. Movie addict. Music listener. Lyrics hoarder.</p>
-  <p class="last serif rv">Now you know a little more than my GitHub does.</p>
+  <h2 class="rv">That's me, in this World.</h2>
+  <p class="roles rv">Coder. Ambivert. Sports nerd. Moviegoer. Music listener. Lyrics hoarder.</p>
+  <p class="last serif rv">Now you know a little more about what makes me, me.</p>
   <a class="top rv" href="#home">Back to top ↑</a>
 </section>
 
@@ -244,8 +259,11 @@ const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.f
 const rail=document.getElementById('rail'),dots=[...document.querySelectorAll('#dots i')];
 const go=d=>rail.scrollBy({left:d*rail.clientWidth,behavior:rm?'auto':'smooth'});
 prev.onclick=()=>go(-1);next.onclick=()=>go(1);
-rail.addEventListener('scroll',()=>{const i=Math.round(rail.scrollLeft/rail.clientWidth);dots.forEach((d,k)=>d.classList.toggle('on',k===i))},{passive:true});
+rail.addEventListener('scroll',()=>{const i=Math.round(rail.scrollLeft/rail.clientWidth);dots.forEach((d,k)=>d.classList.toggle('on',k===i));const pn=rail.children[i];if(pn)document.getElementById('dots').style.setProperty('--cc',pn.style.getPropertyValue('--c'))},{passive:true});
+document.getElementById('dots').style.setProperty('--cc','#74acdf');
 dots.forEach((d,k)=>d.onclick=()=>rail.scrollTo({left:k*rail.clientWidth,behavior:'smooth'}));
+
+document.querySelectorAll('.wiz').forEach(w=>{for(let i=0;i<14;i++){const t=document.createElement('span');t.className='star';t.style.left=Math.random()*100+'%';t.style.top=Math.random()*100+'%';t.style.animationDelay=(Math.random()*3)+'s';w.appendChild(t)}});
 </script>
 </body>
 </html>
